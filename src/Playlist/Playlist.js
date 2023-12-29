@@ -14,8 +14,12 @@ function Playlist() {
 
     return (
         <div className={styles.playlist}>
-            <input className={styles.input}/>
+            <input className={styles.input} placeholder='Playlist Name'/>
             <Tracklist buttonType="-" tracks={tracksList}/>
+            <div className={styles.buttonContainer}>
+                <button className={styles.button}>Save to Spotify</button>
+            </div>
+           
         </div>
 
     );

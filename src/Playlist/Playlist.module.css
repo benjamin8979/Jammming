@@ -1,10 +1,12 @@
 .playlist{
     width: 40%;
     background-color: rgba(16, 2, 42, 0.8);
+    margin-bottom: 60px;
 }
 
 
 .input {
+    text-align: center;
     height: 26px;
     margin-left: 8%;
     border: none;
@@ -20,4 +22,46 @@
 .input:focus {
     outline: none;
     border-bottom: 2px solid rgb(154, 78, 255);
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 80%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color: rgb(154, 78, 255);
+    font-weight: 700;
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+@media screen and (min-width: 520px) {
+    .button {
+        width: 60%;
+        padding: 12px;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .button {
+        width: 50%;
+        padding: 14px;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .button {
+        width: 40%;
+        padding: 14px;
+    }
 }

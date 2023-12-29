@@ -15,7 +15,7 @@ function Searchresults() {
         <div className={styles.search}>
             <div className={styles.align}>
                 <h2 className={styles.results}>Results</h2>
-                <empty> </empty>
+                <div></div>
             </div>
             <Tracklist tracks={tracksList} buttonType="+"/>
         </div>
