@@ -1,0 +1,29 @@
+.search{
+    width: 40%;
+    background-color: rgba(16, 2, 42, 0.8);
+}
+
+.results {
+    color: white;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.align {
+    display:flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 330px) {
+    .search{
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 750px){
+    .align {
+        justify-content: space-around;
+        margin-right:40px;
+    }
+}

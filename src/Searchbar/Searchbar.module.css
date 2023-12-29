@@ -1,0 +1,57 @@
+.searchbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.input {
+    width: 40%;
+    margin-bottom: 1.5rem;
+    padding: 5px;
+    border: 2px solid rgb(32, 4, 84);
+    text-align: center;
+    color: rgb(32, 4, 84);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.input:focus {
+    outline: none;
+    border: 2px solid rgb(154, 78, 255);
+}
+
+.button {
+    width: 25%;
+    padding: 8px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    background-color: rgb(32, 4, 84);
+    font-weight: 700;
+}
+
+.button:hover {
+    background-color: rgb(154, 78, 255);
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+@media screen and (min-width: 600px) {
+    .input {
+        width: 30%;
+        padding: 7px;
+    }
+    .button {
+        width: 15%;
+        padding: 12px;
+        border-radius: 20px;
+        font-size: 1rem;
+    }
+    .button:active {
+        transform: translateY(2px);
+    }
+}
