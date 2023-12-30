@@ -31,21 +31,27 @@ function App() {
 
   const [playList, setPlayList] = useState(playsList);
 
-  function handleClick() {
+  const [playListName, setPlayListName] = useState("");
+
+  function handleSearchClick() {
     setTracks(tracksList);
   }
 
-  function handleChange() {
+  function handlePlayListChange() {
     setPlayList(playList);
+  }
+
+  function handleNameChange(e) {
+    setPlayListName(e.target.value)
   }
 
   return (
     <div className={styles.App}>
       <Header/>
-      <Searchbar onClick={handleClick}/>
+      <Searchbar onClick={handleSearchClick}/>
       <div className={styles.main}>
         <Searchresults tracks={tracks}/>
-        <Playlist playList={playList}/>
+        <Playlist playList={playList} playListName={playListName} onChange={handleNameChange}/>
       </div>
     </div>
   );
