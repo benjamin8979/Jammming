@@ -1,10 +1,10 @@
 import styles from './Searchbar.module.css';
 
-function Searchbar() {
+function Searchbar(props) {
     return (
         <div className={styles.searchbar}>
             <input className={styles.input}/>
-            <button className={styles.button}>Search</button>
+            <button className={styles.button} onClick={props.onClick}>Search</button>
         </div>
     );
 }

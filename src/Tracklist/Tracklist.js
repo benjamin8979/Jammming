@@ -5,9 +5,9 @@ function Tracklist(props) {
     return (
         
         <div>
-            {props.tracks?.map((track) => {
+            {props.tracks?.map((track, index) => {
                 return(
-                <div key={track.name}>
+                <div key={track.name+index}>
                 <div className={styles.track}>
                     <Track name={track.name} artist={track.artist} album={track.album} playlist={track.playlist} />
                     <button className={styles.button}>{props.buttonType}</button>
