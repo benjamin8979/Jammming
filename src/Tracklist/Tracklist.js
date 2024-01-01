@@ -10,7 +10,7 @@ function Tracklist(props) {
                 return(
                 <Track track={track} name={track.name} artist={track.artist} 
                 album={track.album} playlist={track.playlist} key={track.id} 
-                buttonType={props.buttonType} addTrack={props.addTrack}/>
+                buttonType={props.buttonType} addTrack={props.addTrack} removeTrack={props.removeTrack}/>
                 );
             })}
         </div>

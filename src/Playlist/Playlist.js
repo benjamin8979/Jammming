@@ -7,7 +7,7 @@ function Playlist(props) {
     return (
         <div className={styles.playlist}>
             <input className={styles.input} placeholder='Playlist Name' value={props.playListName} onChange={props.onChange}/>
-            <Tracklist buttonType="-" tracks={props.playList}/>
+            <Tracklist buttonType="-" tracks={props.playList} removeTrack={props.removeTrack}/>
             <div className={styles.buttonContainer}>
                 <button className={styles.button}>Save to Spotify</button>
             </div>

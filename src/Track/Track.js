@@ -6,6 +6,9 @@ function Track(props) {
         if (props.buttonType === "+") {
             props.addTrack(props.track.id);
         }
+        else if (props.buttonType === "-") {
+            props.removeTrack(props.track.id);
+        }
     }
 
     return(

@@ -41,6 +41,10 @@ function App() {
     }
   }
 
+  function removeTrack(trackID) {
+    setPlayList((prevTracks) => playList.filter((p) => {return p.id !== trackID}));
+  }
+
   function handleNameChange(e) {
     setPlayListName(e.target.value)
   }
@@ -53,7 +57,8 @@ function App() {
       <Searchbar onClick={handleSearchClick}/>
       <div className={styles.main}>
         <Searchresults tracks={tracks} addTrack={addTrack}/>
-        <Playlist playList={playList} playListName={playListName} onChange={handleNameChange}/>
+        <Playlist playList={playList} playListName={playListName} 
+        onChange={handleNameChange} removeTrack={removeTrack}/>
       </div>
     </div>
   );
