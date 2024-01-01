@@ -1,22 +1,3 @@
-.line {
-    width: 80%;
-}
-
 .track {
-    display: flex;
-    justify-content: space-between;
-}
-
-.button {
-    color: white;
-    background-color: rgba(0,0,0,0);
-    border: none;
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-@media screen and (min-width: 750px){
-    .track {
-       justify-content: space-around;
-    }
+    margin-bottom: 40px;
 }

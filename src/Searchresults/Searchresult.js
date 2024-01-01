@@ -9,7 +9,7 @@ function Searchresults(props) {
                 <h2 className={styles.results}>Results</h2>
                 <div></div>
             </div>
-            <Tracklist tracks={props.tracks} buttonType="+"/>
+            <Tracklist tracks={props.tracks} addTrack={props.addTrack} buttonType="+"/>
         </div>
     );
 }

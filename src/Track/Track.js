@@ -2,11 +2,23 @@ import styles from './Track.module.css';
 
 function Track(props) {
 
+    function handleClick() {
+        if (props.buttonType === "+") {
+            props.addTrack(props.track.id);
+        }
+    }
+
     return(
-        <div className={styles.Track}>
-            <h5 className={styles.firstrow}>{props.name}</h5>
-            <h6 className={styles.secondrow}>{props.artist} | {props.album}</h6>
-            <h6 className={styles.thirdrow}>{props.playlist}</h6>
+        <div>
+            <div className={styles.trackRow}>
+                <div className={styles.Track}>
+                    <h5 className={styles.firstrow}>{props.name}</h5>
+                    <h6 className={styles.secondrow}>{props.artist} | {props.album}</h6>
+                    <h6 className={styles.thirdrow}>{props.playlist}</h6>
+                </div>
+                <button className={styles.button} onClick={handleClick}>{props.buttonType}</button>
+            </div>
+            <hr className={styles.line}></hr>
         </div>
     );
 }

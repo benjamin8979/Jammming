@@ -18,3 +18,26 @@
     margin: 2px;
     color: lightgrey;
 }
+
+.line {
+    width: 80%;
+}
+
+.button {
+    color: white;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.trackRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 750px){
+    .trackRow {
+       justify-content: space-around;
+    }
+}

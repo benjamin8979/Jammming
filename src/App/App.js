@@ -4,6 +4,7 @@ import Searchbar from '../Searchbar/Searchbar';
 import Searchresults from '../Searchresults/Searchresult';
 import Playlist from '../Playlist/Playlist';
 import styles from './App.module.css';
+import { generateId } from '../Utilities/Utilities';
 
 function App() {
 
@@ -14,43 +15,44 @@ function App() {
       track.artist = "artist" + i;
       track.album = "album" + i;
       track.playlist = "playlist" + i;
+      track.id = generateId();
       tracksList.push(track)
   }
   
-  const playsList = [];
-  for (let i = 11; i <= 15; i++) {
-    let track = {};
-    track.name = "name" + i;
-    track.artist = "artist" + i;
-    track.album = "album" + i;
-    track.playlist = "playlist" + i;
-    playsList.push(track)
-}
 
   const [tracks, setTracks] = useState(tracksList);
 
-  const [playList, setPlayList] = useState(playsList);
+  const [playList, setPlayList] = useState(null);
 
-  const [playListName, setPlayListName] = useState("");
+  const [playListName, setPlayListName] = useState([]);
 
   function handleSearchClick() {
     setTracks(tracksList);
   }
 
-  function handlePlayListChange() {
-    setPlayList(playList);
+  function addTrack(newTrackID) {
+    for (let track of tracks) {
+      if (track.id === newTrackID) {
+        if(!playList||(playList.filter((p) => {return p.id === track.id})).length === 0) {
+          setPlayList((prevTracks) => prevTracks?[...prevTracks, track]:[track]);
+        }
+        return;
+      }
+    }
   }
 
   function handleNameChange(e) {
     setPlayListName(e.target.value)
   }
 
+ 
+
   return (
     <div className={styles.App}>
       <Header/>
       <Searchbar onClick={handleSearchClick}/>
       <div className={styles.main}>
-        <Searchresults tracks={tracks}/>
+        <Searchresults tracks={tracks} addTrack={addTrack}/>
         <Playlist playList={playList} playListName={playListName} onChange={handleNameChange}/>
       </div>
     </div>
