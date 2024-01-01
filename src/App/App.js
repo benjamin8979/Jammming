@@ -16,15 +16,18 @@ function App() {
       track.album = "album" + i;
       track.playlist = "playlist" + i;
       track.id = generateId();
+      track.uri = generateId();
       tracksList.push(track)
   }
   
 
   const [tracks, setTracks] = useState(tracksList);
 
-  const [playList, setPlayList] = useState(null);
+  const [playList, setPlayList] = useState([]);
 
-  const [playListName, setPlayListName] = useState([]);
+  const [playListName, setPlayListName] = useState("");
+
+  const[URIs, setURIs] = useState([]);
 
   function handleSearchClick() {
     setTracks(tracksList);
@@ -35,6 +38,7 @@ function App() {
       if (track.id === newTrackID) {
         if(!playList||(playList.filter((p) => {return p.id === track.id})).length === 0) {
           setPlayList((prevTracks) => prevTracks?[...prevTracks, track]:[track]);
+          setURIs((prevURIs) => prevURIs?[...prevURIs, track.uri]:[track.uri]);
         }
         return;
       }
@@ -49,6 +53,14 @@ function App() {
     setPlayListName(e.target.value)
   }
 
+  function savePlaylist() {
+    if (playList.length > 0 && playListName) {
+      setPlayList([]);
+      setPlayListName("");
+      setURIs([]);
+    }
+  }
+
  
 
   return (
@@ -58,7 +70,7 @@ function App() {
       <div className={styles.main}>
         <Searchresults tracks={tracks} addTrack={addTrack}/>
         <Playlist playList={playList} playListName={playListName} 
-        onChange={handleNameChange} removeTrack={removeTrack}/>
+        onChange={handleNameChange} removeTrack={removeTrack} savePlaylist={savePlaylist}/>
       </div>
     </div>
   );
