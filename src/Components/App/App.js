@@ -5,7 +5,7 @@ import Searchresults from '../Searchresults/Searchresult';
 import Playlist from '../Playlist/Playlist';
 import styles from './App.module.css';
 import { generateId } from '../../Utilities/Utilities';
-import { getAccessToken } from '../../Utilities/Spotify';
+import { searchRequest } from '../../Utilities/Spotify';
 
 function App() {
 
@@ -22,6 +22,7 @@ function App() {
       tracksList.push(track)
   }
   
+  const [searchInput, setSearchInput] = useState("");
 
   const [tracks, setTracks] = useState(tracksList);
 
@@ -31,8 +32,15 @@ function App() {
 
   const[URIs, setURIs] = useState([]);
 
-  function handleSearchClick() {
+  function handleSearchChange(e) {
+    setSearchInput(e.target.value);
+  }
+
+  function handleSearchClick(param) {
     setTracks(tracksList);
+    if (param) {
+      searchRequest(param);
+    }
   }
 
   function addTrack(newTrackID) {
@@ -52,7 +60,7 @@ function App() {
   }
 
   function handleNameChange(e) {
-    setPlayListName(e.target.value)
+    setPlayListName(e.target.value);
   }
 
   function savePlaylist() {
@@ -68,7 +76,7 @@ function App() {
   return (
     <div className={styles.App}>
       <Header/>
-      <Searchbar onClick={handleSearchClick}/>
+      <Searchbar searchInput={searchInput} onChange={handleSearchChange} onSearch={handleSearchClick}/>
       <div className={styles.main}>
         <Searchresults tracks={tracks} addTrack={addTrack}/>
         <Playlist playList={playList} playListName={playListName} 
