@@ -2,6 +2,7 @@
     width: 40%;
     background-color: rgba(32,4,84,0.8);
     margin-bottom: 80px;
+    min-height: 35rem;
 }
 
 .results {
@@ -24,8 +25,7 @@
 
 @media screen and (min-width: 750px){
     .align {
-        justify-content: space-around;
-        margin-right:30px;
+        margin-left: 1rem;
         font-size: 1.25rem;
     }
 }

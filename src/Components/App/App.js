@@ -4,27 +4,15 @@ import Searchbar from '../Searchbar/Searchbar';
 import Searchresults from '../Searchresults/Searchresult';
 import Playlist from '../Playlist/Playlist';
 import styles from './App.module.css';
-import { generateId } from '../../Utilities/Utilities';
-import { searchRequest } from '../../Utilities/Spotify';
+import { getAccessToken, searchRequest } from '../../Utilities/Spotify';
 
 function App() {
 
+  getAccessToken();
 
-  const tracksList = [];
-  for (let i = 1; i <= 10; i++) {
-      let track = {};
-      track.name = "name" + i;
-      track.artist = "artist" + i;
-      track.album = "album" + i;
-      track.playlist = "playlist" + i;
-      track.id = generateId();
-      track.uri = generateId();
-      tracksList.push(track)
-  }
-  
   const [searchInput, setSearchInput] = useState("");
 
-  const [tracks, setTracks] = useState(tracksList);
+  const [tracks, setTracks] = useState([]);
 
   const [playList, setPlayList] = useState([]);
 
@@ -36,10 +24,11 @@ function App() {
     setSearchInput(e.target.value);
   }
 
-  function handleSearchClick(param) {
-    setTracks(tracksList);
+  async function handleSearchClick(param) {
     if (param) {
-      searchRequest(param);
+      let tracksList = await searchRequest(param);
+      console.log(tracksList);
+      setTracks(tracksList);
     }
   }
 
