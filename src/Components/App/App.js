@@ -4,9 +4,11 @@ import Searchbar from '../Searchbar/Searchbar';
 import Searchresults from '../Searchresults/Searchresult';
 import Playlist from '../Playlist/Playlist';
 import styles from './App.module.css';
-import { generateId } from '../Utilities/Utilities';
+import { generateId } from '../../Utilities/Utilities';
+import { getAccessToken } from '../../Utilities/Spotify';
 
 function App() {
+
 
   const tracksList = [];
   for (let i = 1; i <= 10; i++) {
