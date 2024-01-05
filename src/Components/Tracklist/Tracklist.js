@@ -1,10 +1,11 @@
 import Track from '../Track/Track';
 import styles from './Tracklist.module.css';
 
+// Tracklist component
+// Organized container for tracks
+// Displayed in search results and playlist
 function Tracklist(props) {
-
     return (
-        
         <div className={styles.track}>
             {props.tracks?.map((track) => {
                 return(

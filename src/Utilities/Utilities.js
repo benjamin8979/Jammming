@@ -1,4 +1,6 @@
 
+// Generate a random ID
+// Used for testing
 let nextId = 0;
 export function generateId() {
   const result = nextId;
@@ -6,6 +8,8 @@ export function generateId() {
   return result;
 }
 
+// Generate a random string
+// Used to create state for s\Spotify access token request
 export function generateString(size) {
   let str = '';
   let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';

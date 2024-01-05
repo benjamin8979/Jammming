@@ -1,10 +1,17 @@
 import {generateString} from './Utilities';
 
+// REPLACE EMPTY QUOTES WITH YOUR SPOTIFY CLIENT_ID TO 
+// CONNECT JAMMMING WITH YOUR SPOTIFY ACCOUNT
+// For more information visit: https://developer.spotify.com/documentation/web-api
 const clientID = '';
+
+// Where progam should redirect after obtaining clientID
 const redirectURI = 'http://localhost:3000';
 
 let accessToken;
 
+// Retrieve Spotify access token 
+// Allows user to add playlist to their own Spotify account
 export function getAccessToken(){
     if (accessToken) {
         return accessToken;
@@ -33,6 +40,8 @@ export function getAccessToken(){
     } 
 }
 
+// Sends a search request to Spotify with the text entered in the search bar
+// Spotify returns an array of tracks that match the search input
 export async function searchRequest(searchInput) {
     accessToken = getAccessToken();
     const response = await fetch(`https://api.spotify.com/v1/search?q=${searchInput}&type=track`, {
@@ -57,6 +66,7 @@ export async function searchRequest(searchInput) {
     return tracks;
 }
 
+// Saves a user's playlist to Spotify
 export async function saveToSpotify(playlistName, tracksToAdd) {
     accessToken = getAccessToken();
     const response = await fetch("https://api.spotify.com/v1/me", {

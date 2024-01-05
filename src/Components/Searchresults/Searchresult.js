@@ -1,8 +1,9 @@
 import Tracklist from '../Tracklist/Tracklist';
 import styles from './Searchresults.module.css';
 
+// Searchresults component
+// Container to display the tracklist returned from Spotify search request
 function Searchresults(props) {
-
     return (
         <div className={styles.search}>
             <div className={styles.align}>

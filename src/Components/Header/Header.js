@@ -1,5 +1,7 @@
 import styles from './Header.module.css';
 
+// Header component
+// Display app title "Jammming" at the top of the page
 function Header() {
   return (
     <div className={styles.Header}>

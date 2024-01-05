@@ -1,7 +1,12 @@
 import styles from './Track.module.css';
 
+// Track component
+// Track includes a song's name, artist, and album
+// As well as a button to add to or remove from playlist
 function Track(props) {
 
+    // Add track to the playlist if button is "+"
+    // Remove track from the playlist if button is "-"
     function handleClick() {
         if (props.buttonType === "+") {
             props.addTrack(props.track.id);
