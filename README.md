@@ -10,6 +10,10 @@ If this is your first time using Jammming, you will be redirected to Spotify and
 
 You must set the clientID variable on line 6 of src/Utilities/Spotify.js to your own personal Spotify clientID to able to connect to your Spotify account. Visit https://developer.spotify.com/documentation/web-api for more information on retrieving your Spotify client_id.
 
+## Future Work
+
+New feature to include samples of the tracks to allow a user to listen to them before adding to their playlist.
+
 ## Technologies Used
 
 React, JavaScript, HTML, CSS
