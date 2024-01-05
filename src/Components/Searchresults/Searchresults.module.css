@@ -29,3 +29,19 @@
         font-size: 1.25rem;
     }
 }
+
+.button {
+    height: 2rem;
+    margin-right: 20px;
+    margin-top: 22.5px;
+    padding: 0px 20px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    background-color: rgb(154, 78, 255);
+    font-weight: 700;
+}
+
+.button:active {
+    transform: translateY(2px);
+}

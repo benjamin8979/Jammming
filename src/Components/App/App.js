@@ -4,7 +4,7 @@ import Searchbar from '../Searchbar/Searchbar';
 import Searchresults from '../Searchresults/Searchresult';
 import Playlist from '../Playlist/Playlist';
 import styles from './App.module.css';
-import { getAccessToken, searchRequest } from '../../Utilities/Spotify';
+import { getAccessToken, searchRequest, saveToSpotify } from '../../Utilities/Spotify';
 
 function App() {
 
@@ -27,7 +27,6 @@ function App() {
   async function handleSearchClick(param) {
     if (param) {
       let tracksList = await searchRequest(param);
-      console.log(tracksList);
       setTracks(tracksList);
     }
   }
@@ -48,12 +47,17 @@ function App() {
     setPlayList((prevTracks) => playList.filter((p) => {return p.id !== trackID}));
   }
 
+  function clearTracks() {
+    setTracks([]);
+  }
+
   function handleNameChange(e) {
     setPlayListName(e.target.value);
   }
 
   function savePlaylist() {
     if (playList.length > 0 && playListName) {
+      saveToSpotify(playListName, URIs);
       setPlayList([]);
       setPlayListName("");
       setURIs([]);
@@ -67,7 +71,7 @@ function App() {
       <Header/>
       <Searchbar searchInput={searchInput} onChange={handleSearchChange} onSearch={handleSearchClick}/>
       <div className={styles.main}>
-        <Searchresults tracks={tracks} addTrack={addTrack}/>
+        <Searchresults tracks={tracks} addTrack={addTrack} clearTracks={clearTracks}/>
         <Playlist playList={playList} playListName={playListName} 
         onChange={handleNameChange} removeTrack={removeTrack} savePlaylist={savePlaylist}/>
       </div>
